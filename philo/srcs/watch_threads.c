@@ -37,7 +37,7 @@ int	watch_threads(t_philo *philo)
 			pthread_mutex_lock(&philo->info->msg);
 			if (get_current_time(philo[i].last_eat + philo->info->start)
 				>= philo->info->time_to_die)
-				return (exit_threads(1, philo));
+				return (exit_threads(1, &philo[i]));
 			pthread_mutex_unlock(&philo->info->msg);
 			if (philo->info->number_of_times < 0
 				|| philo[i].number_of_times < philo->info->number_of_times)
